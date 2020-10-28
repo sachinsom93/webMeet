@@ -5,10 +5,8 @@
 
 
 ## Project Purpose 
-In this senerio of covid 19, when everyone is being forced
-to word and socialize from home. Video chat has become
-incredibly important.So, I decided to build this project that
-will help people to be socialize via their web browsers. 
+In this scenerio when everyone is traped inside of their houses, every person need an virtual working enviornment so they are using some popular video conferening app, 
+but due to bad internet connectivity they are suffered from bad audio and video quality.
 
 ## Overview
 WebMeet is a web application, on which a user can
@@ -19,7 +17,7 @@ of that room id user can invite his/her friends to join his
 room. After completing his meeting user can delete that
 room or he can save that room for future. Beside these
 there will be some more utilities to make this app user
-friendly. 
+friendly. WebMeet works on WebRTC that enables the user to communicate without any audio buffering.
 
 ## Technology Stack
 - FrontEnd
