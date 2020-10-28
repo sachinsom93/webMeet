@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+  <!-- brand logo-->
+  <a class="navbar-brand" href="/">WebMeet</a>
+
+  <!-- toggle button-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- nav bar links-->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      
+      <% if(typeof authenticated != 'undefined' && !authenticated){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/login">Login</a>
+        </li>
+      <% } %>  
+      <% if(typeof authenticated != 'undefined' && authenticated){ %>
+        <li class="nav-item ">
+          <a class="nav-link" href="/home">Home</a>
+        </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          <%= user.email %> 
+          </a>
+          <div class="dropdown-menu">
+          
+          <a class="dropdown-item" href="/user/logout">Logout</a>
+          </div>
+      </li>
+      <% } %>  
+    </ul>
+  </div>  
+
+</nav>
+<%- include('_message') %>
+<div class="main-container ">
+  
+
+  <div class="main-left"></div>
+  <div class="main-right">
+    <h1>WebMeet</h1>
+    <small>Be with your knowns</small>
+    <br>
+    <br><br>
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-secondary text-dark" data-toggle="modal" data-target="#myModal">
+      Start Here
+    </button>
+  </div>
+
+  
+</div>
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">WebMeet <small>join with us</small></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body">
+          <div class="card text-center">
+              <div class="card-header">
+                Featured
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Register/Login</h5>
+                <p class="card-text">Register youself, login, create rooms and invite your friends.</p>
+                <a href="/user/register" class="btn btn-primary">Register</a>
+                <a href="/user/login" class="btn btn-primary">Login</a>
+              </div>
+              <div class="card-footer text-muted">
+                Be with your knowns
+              </div>
+            </div>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

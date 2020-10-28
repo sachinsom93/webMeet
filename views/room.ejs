@@ -1,0 +1,151 @@
+<script >
+    let roomId = "<%= roomId %>";
+</script>
+<!-- for bottom navbar-->
+<!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark bottom-nav" style="height: 4.5em; padding: 0px;">
+        
+    </div> -->
+
+    <!-- <ul class="navbar-nav" style="height: 100%;"> -->
+        
+        <!-- for mute-unmute-->
+        <!-- <li class="nav-item">
+            <div class="button-controls microphone" onclick="muteUnmute()">
+                <i class="fa fa-microphone" style="display: block;"></i>
+                <div>
+                    <p>Mute</p>
+                </div>
+            </div>
+        </li> -->
+
+        <!-- for stop video button-->
+        <!-- <li class="nav-item">
+            <div class="button-controls camera" onclick="stopVideo()">
+                <i class="fa fa-video-camera" style="display: block;"></i>
+                <div>
+                    <p>Stop Video</p>
+                </div>
+            </div>
+        </li> -->
+
+        <!-- for all participants names-->
+        <!-- <li class="nav-item">
+            <div class="button-controls">
+                <i class="fa fa-users" style="display: block;"></i>
+                <div>
+                    <p>Participants</p>
+                </div>
+            </div>
+        </li> -->
+        
+        <!-- <li class="nav-item dropdown ">
+            <div class="button-controls">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <i class="fa fa-users" style="display: block;"></i>
+                    <div>
+                        <p>Invite</p>
+                    </div>
+                    </a>
+                <div class="dropdown-menu">
+                    
+                    <div class="dropdown-item">
+                    </div>
+
+
+                
+                </div>
+            </div> -->
+        <!-- </li> -->
+
+        <!-- leave room-->
+        <!-- <li class="nav-item float-right">
+            <div class="button-controls red" onclick="window.location.href = '/home'">
+                <i class="fa fa-sign-out" style="display: block;"></i>
+                <div>
+                    <p>Leave Room</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    
+
+  </nav> -->
+
+
+<div class="room-container">
+    <div id="videoGrid">
+    
+    </div>
+    <div class="controls">
+
+        <!-- for microphone-->
+        <div class="button-controls microphone" onclick="muteUnmute()">
+            <i class="fa fa-microphone" style="display: block;"></i>
+            <div>
+                <p>Mute</p>
+            </div>
+        </div>
+
+        <!-- for stop video button -->
+        <div class="button-controls camera" onclick="stopVideo()">
+            <i class="fa fa-video-camera" style="display: block;"></i>
+            <div>
+                <p>Stop Video</p>
+            </div>
+        </div>
+        
+        <!-- for all participants-->
+        <div class="button-controls" >
+            <i class="fa fa-users" style="display: block;"></i>
+            <div id="noOfMembers">
+                <p>Members</p>
+            </div>
+        </div>
+
+        
+
+        <!-- for invite friends -->
+        <div class="button-controls red" data-toggle="modal" data-target="#InviteModal">
+            <i class="fa fa-share" style="display: block;"></i>
+            <div>
+                <p>Invite</p>
+            </div>
+        </div>
+
+                <!-- Modal -->
+        <div id="InviteModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title">Share your RoomId</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group form-inline d-inline dropdown-item">
+                        <input type="text" value="<%= roomId %>" id="copyRoomId" class="form-control">
+                    </form>
+                   <button type="button" class="btn btn-dark" onclick="copyId(this)">Share</button>                      
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        
+            </div>
+        </div>
+            
+
+
+        <!-- for leave room -->
+        <div class="button-controls red" onclick="window.location.href = '/home'">
+            <i class="fa fa-sign-out" style="display: block;"></i>
+            <div>
+                <p>Leave</p>
+            </div>
+        </div>
+    
+
+    </div>
+</div>

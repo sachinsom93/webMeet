@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+  <!-- brand logo-->
+  <a class="navbar-brand" href="/">WebMeet</a>
+
+  <!-- toggle button-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- nav bar links-->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      
+      <% if(typeof authenticated != 'undefined' && !authenticated){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/login">Login</a>
+        </li>
+      <% } %>  
+      <% if(typeof authenticated != 'undefined' && authenticated){ %>
+        <li class="nav-item ">
+          <a class="nav-link" href="/home">Home</a>
+        </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          <%= user.email %> 
+          </a>
+          <div class="dropdown-menu">
+         
+          <a class="dropdown-item" href="/user/logout">Logout</a>
+          </div>
+      </li>
+      <% } %>  
+    </ul>
+  </div>  
+
+</nav>
+<%- include('_message') %>
+<div class="container mycontainer my-4">
+    <form class="px-4 py-3" method="POST" action="/user/register">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="name" name="name"
+          placeholder="Enter your name"
+          value="<%= (typeof user != undefined) ? user.name : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          id="email" 
+          name="email" 
+          placeholder="Enter your email"
+          value="<%= (typeof user != undefined) ? user.email : '' %>">
+      </div>
+      <div class="form-group">
+          <label for="password">New Password</label>
+          <input 
+            type="password" 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            placeholder="Enter a new password"
+            value="<%= (typeof user != undefined) ? user.password : '' %>">
+      </div>
+      <div class="form-group">
+          <label for="password2">confirm Password</label>
+          <input 
+            type="password" 
+            class="form-control" 
+            id="password2" 
+            name="password2" 
+            placeholder="Confirm password"
+            value="<%= (typeof user != undefined) ? user.password2 : '' %>">
+      </div>
+      
+      <button type="submit" class="btn btn-dark">Sign in</button>
+    </form>
+    <p >Already have an account ? <a style="font-weight: 700; color: black;" href="/user/login">Sign Up</a></p>
+  </div>

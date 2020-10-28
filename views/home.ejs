@@ -1,0 +1,62 @@
+<!-- <div class="container">
+    <h1>This is home page</h1>
+    
+    
+</div> -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+    <!-- brand logo-->
+    <a class="navbar-brand" href="/">WebMeet</a>
+
+    <!-- toggle button-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- nav bar links-->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        
+        <% if(typeof authenticated != 'undefined' && !authenticated){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/login">Login</a>
+          </li>
+        <% } %>  
+        <% if(typeof authenticated != 'undefined' && authenticated){ %>
+          <li class="nav-item ">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <%= user.email %> 
+            </a>
+            <div class="dropdown-menu">
+            <!-- <a class="dropdown-item" href="#">View Profile</a>
+            <a class="dropdown-item" href="#">Edit Profile</a> -->
+            <a class="dropdown-item" href="/user/logout">Logout</a>
+            </div>
+        </li>
+        <% } %>  
+      </ul>
+    </div>  
+
+  </nav>
+  <%- include('_message') %>
+<div class="home-container">
+    <div class="create-room">
+        <div>
+            <a href="/home/room/<%= roomId %> " class="btn btn-dark text-light" id="createRoom">Create Room</a>
+        </div>
+    </div>
+    <div class="join-room">
+        <form class="form-group" method="POST" action="/home/join">
+            <label for="roomId" class="text-light">Enter room Id:</label>
+            <input type="text" name="roomId" id="roomId" class="form-control" required>
+            <button class="btn btn-dark" style="margin: 2em;">Join Room</button>
+        </form>
+    </div>
+</div>
